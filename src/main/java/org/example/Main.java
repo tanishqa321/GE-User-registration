@@ -6,7 +6,6 @@ import java.util.regex.Pattern;//TIP To <b>Run</b> code, press <shortcut actionI
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
         String emailPattern = "^[a-zA-Z0-9]+([._+-]?[a-zA-Z0-9]+)*@[a-zA-Z0-9]+\\.[a-zA-Z]{2,}(\\.[a-zA-Z]{2,})?$";
 
         // Regex pattern for First Name validation (Starts with Capital and at least 3 characters)
@@ -59,16 +58,18 @@ public class Main {
         String r1 = ".{8,}"; // Minimum 8 characters
         String r2 = "(?=.*[A-Z]).*"; // At least one uppercase letter
         String r3 = "(?=.*[0-9]).*"; // At least one numeric number
-        System.out.println("Please enter your password (Minimum 8 characters, at least 1 uppercase letter , at least one numeric number):");
+        String r4 = "(?=.*[@#$%^&+=!]).*"; // At least one special character
+        System.out.println("Please enter your password (Minimum 8 characters, at least 1 uppercase letter , at least one numeric number ):");
 
         String password = scanner.nextLine();
-        if(Pattern.matches(r1,password) && Pattern.matches(r2, password) && Pattern.matches(r3, password)){
+        if(Pattern.matches(r1,password) && Pattern.matches(r2, password) && Pattern.matches(r3, password)&& Pattern.matches(r2, password)){
             System.out.println("Valid Password");
         }else {
             System.out.println("Invalid password. Please follow these rules:");
             System.out.println("2. Minimum 8 characters.");
             System.out.println("2. At least 1 uppercase letter.");
             System.out.println("3. At least 1 numeric digit.");
+            System.out.println("4. Exactly 1 special character.");
         }
         scanner.close();
     }
