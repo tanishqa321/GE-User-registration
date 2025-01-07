@@ -57,14 +57,16 @@ public class Main {
         }
         //UC5
         String r1 = ".{8,}"; // Minimum 8 characters
-        System.out.println("Please enter your password (Minimum 8 characters):");
+        String r2 = "(?=.*[A-Z]).*"; // At least one uppercase letter
+        System.out.println("Please enter your password (Minimum 8 characters, at least 1 uppercase letter):");
 
         String password = scanner.nextLine();
-        if(Pattern.matches(r1,password)){
+        if(Pattern.matches(r1,password) && Pattern.matches(r2, password)){
             System.out.println("Valid Password");
         }else {
-            System.out.println("Invalid password. Please follow the rules:");
-            System.out.println(" Minimum 8 characters.");
+            System.out.println("Invalid password. Please follow these rules:");
+            System.out.println("2. Minimum 8 characters.");
+            System.out.println("2. At least 1 uppercase letter.");
         }
         scanner.close();
     }
