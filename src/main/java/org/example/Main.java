@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Pattern;//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -70,6 +71,43 @@ public class Main {
             System.out.println("2. At least 1 uppercase letter.");
             System.out.println("3. At least 1 numeric digit.");
             System.out.println("4. Exactly 1 special character.");
+        }
+
+        //UC9
+        List<String> emailSamples = List.of(
+                // Valid Emails
+                "abc@yahoo.com",         // Valid
+                "abc-100@yahoo.com",     // Valid
+                "abc.100@yahoo.com",     // Valid
+                "abc111@abc.com",        // Valid
+                "abc-100@abc.net",       // Valid
+                "abc.100@abc.com.au",    // Valid
+                "abc@1.com",             // Valid
+                "abc@gmail.com.com",     // Valid
+                "abc+100@gmail.com",     // Valid
+
+                // Invalid Emails
+                "abc",                   // Invalid - Missing "@" symbol
+                "abc@.com.my",           // Invalid - TLD starts with a dot
+                "abc123@gmail.a",        // Invalid - TLD must have at least two characters
+                "abc123@.com",           // Invalid - TLD starts with a dot
+                "abc123@.com.com",       // Invalid - TLD starts with a dot
+                ".abc@abc.com",          // Invalid - First character is a dot
+                "abc()*@gmail.com",      // Invalid - Contains invalid characters
+                "abc@%*.com",            // Invalid - TLD contains invalid characters
+                "abc..2002@gmail.com",   // Invalid - Contains double dots
+                "abc.@gmail.com",        // Invalid - Ends with a dot
+                "abc@abc@gmail.com",     // Invalid - Contains multiple "@" symbols
+                "abc@gmail.com.1a",      // Invalid - TLD with two characters contains a digit
+                "abc@gmail.com.aa.au"    // Invalid - Multiple TLDs are not allowed
+        );
+        // Check each email sample
+        for (String emails : emailSamples) {
+            if (Pattern.matches(emailPattern, emails)) {
+                System.out.println("Valid email: " + emails);
+            } else {
+                System.out.println("Invalid email: " + emails);
+            }
         }
         scanner.close();
     }
