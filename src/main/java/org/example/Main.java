@@ -37,6 +37,22 @@ public class Main {
             System.out.println("Valid email: " + email);
         } else {
             System.out.println("Invalid email. Please enter a valid email in the format abc.xyz@bl.co.in.");
+
+            String mobilePattern = "^\\d{2} \\d{10}$"; // Country code followed by space and 10 digits
+
+
+            System.out.println("Please enter your mobile number ");
+
+            //UC4
+            String mobileNumber = scanner.nextLine();
+
+            // Validate mobile number using regex pattern
+            if (Pattern.matches(mobilePattern, mobileNumber)) {
+                System.out.println("Valid mobile number: " + mobileNumber);
+            } else {
+                System.out.println("Invalid mobile number. Please enter a valid mobile number in the format 91 9919819801.");
+            }
+
         }
         scanner.close();
     }
