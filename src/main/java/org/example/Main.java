@@ -6,6 +6,7 @@ import java.util.regex.Pattern;//TIP To <b>Run</b> code, press <shortcut actionI
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        String emailPattern = "^[a-zA-Z0-9]+([._+-]?[a-zA-Z0-9]+)*@[a-zA-Z0-9]+\\.[a-zA-Z]{2,}(\\.[a-zA-Z]{2,})?$";
 
         // Regex pattern for First Name validation (Starts with Capital and at least 3 characters)
         String namePattern = "^[A-Z][a-zA-Z]{2,}$";
@@ -25,6 +26,17 @@ public class Main {
             System.out.println("Valid last name: " + lastName);
         } else {
             System.out.println("Invalid last name. Please ensure it starts with a capital letter and has at least 3 characters.");
+        }
+        System.out.println("Please enter your email address:");
+
+
+        String email = scanner.nextLine();
+
+        // Validate email using regex pattern
+        if (Pattern.matches(emailPattern, email)) {
+            System.out.println("Valid email: " + email);
+        } else {
+            System.out.println("Invalid email. Please enter a valid email in the format abc.xyz@bl.co.in.");
         }
         scanner.close();
     }
