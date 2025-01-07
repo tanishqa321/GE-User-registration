@@ -6,6 +6,7 @@ import java.util.regex.Pattern;//TIP To <b>Run</b> code, press <shortcut actionI
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+
         String emailPattern = "^[a-zA-Z0-9]+([._+-]?[a-zA-Z0-9]+)*@[a-zA-Z0-9]+\\.[a-zA-Z]{2,}(\\.[a-zA-Z]{2,})?$";
 
         // Regex pattern for First Name validation (Starts with Capital and at least 3 characters)
@@ -53,6 +54,17 @@ public class Main {
                 System.out.println("Invalid mobile number. Please enter a valid mobile number in the format 91 9919819801.");
             }
 
+        }
+        //UC5
+        String r1 = ".{8,}"; // Minimum 8 characters
+        System.out.println("Please enter your password (Minimum 8 characters):");
+
+        String password = scanner.nextLine();
+        if(Pattern.matches(r1,password)){
+            System.out.println("Valid Password");
+        }else {
+            System.out.println("Invalid password. Please follow the rules:");
+            System.out.println(" Minimum 8 characters.");
         }
         scanner.close();
     }
